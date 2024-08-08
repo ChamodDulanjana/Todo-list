@@ -7,21 +7,20 @@ import TodoList from "./component/TodoList.tsx";
 
 function App() {
     const [todo, setTodo] = useState<string>("");
-    const [todos, setTodos] = useState<Todo[]>([]);
+    const [todos, setTodos] = useState<Array<Todo>>([]);
 
 
 
     const handleAddTodo = (event: React.FormEvent) => {
         event.preventDefault();
 
-        const date = Date.now()
         if(todo){
-            setTodos([...todos, {id: date.toString(), message:todo, isDone:false}]);
+            setTodos([...todos, {id: Date.now(), message:todo, isDone:false}]);
             setTodo("");
         }
 
     }
-    console.log(todos);
+
 
 
   return (
