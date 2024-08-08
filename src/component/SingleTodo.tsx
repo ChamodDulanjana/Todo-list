@@ -44,7 +44,7 @@ const SingleTodo = ({todo, todos, setTodos}: singleTodoProps) => {
     }, [edit]);
 
     return (
-        <form className="flex w-[440px] h-[10px] rounded-xl p-10 mt-20 ml-10 bg-singleTodo"
+        <form className="flex w-[440px] h-[10px] rounded-xl p-10 mt-10 ml-10 bg-singleTodo"
               onSubmit={(event) => {
                   handleEdit(event, todo.id);
               }}>

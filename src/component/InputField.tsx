@@ -26,7 +26,7 @@ const InputField = ({todo, setTodo, handleAddTodo}:InputFieldProps) => {
             />
             <button
                 type="submit"
-                className="absolute w-[47px] h-[47px] right-0 m-1 rounded-full text-lg bg-[#2f74c0] text-white hover:bg-[#388ae2] active:text-sm">Go</button>
+                className="absolute w-[47px] h-[47px] right-0 m-1 rounded-full text-lg bg-[#C761E6] text-white hover:bg-[#D27AE6] active:text-sm">Go</button>
         </form>
     );
 };

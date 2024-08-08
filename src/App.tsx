@@ -9,8 +9,6 @@ function App() {
     const [todo, setTodo] = useState<string>("");
     const [todos, setTodos] = useState<Array<Todo>>([]);
 
-
-
     const handleAddTodo = (event: React.FormEvent) => {
         event.preventDefault();
 
@@ -18,16 +16,15 @@ function App() {
             setTodos([...todos, {id: Date.now(), message:todo, isDone:false}]);
             setTodo("");
         }
-
     }
 
 
-
   return (
-   <div className="flex flex-col items-center h-[100vw] min-w-[100vw] font-Neucha bg-[#2f74c0]">
-        <span className="text-4xl text-white font-medium items-center m-10 z-10">Todo-List</span>
-        <InputField todo={todo} setTodo={setTodo} handleAddTodo={handleAddTodo} />
-        <TodoList todos={todos} setTodos={setTodos}/>
+   <div className="flex flex-col items-center h-[100vw] min-w-[100vw] font-Neucha bg-mainBg">
+           <span className="text-4xl text-white font-medium items-center mt-5 mb-10 z-10">Todo-List</span>
+
+       <InputField todo={todo} setTodo={setTodo} handleAddTodo={handleAddTodo} />
+       <TodoList todos={todos} setTodos={setTodos}/>
    </div>
   )
 

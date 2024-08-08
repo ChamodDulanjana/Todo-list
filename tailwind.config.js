@@ -16,6 +16,7 @@ export default {
       },
       backgroundImage: {
         'singleTodo': 'url("https://img.freepik.com/free-photo/crumpled-yellow-paper-background-close-up_60487-2390.jpg?size=626&ext=jpg")',
+        'mainBg': 'url("https://i.pinimg.com/originals/5a/04/7d/5a047ddb837bea7a17e098aa1b61bbe7.jpg")'
       }
     },
   },
