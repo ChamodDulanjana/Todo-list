@@ -1,20 +1,37 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
+import InputField from "./component/InputField.tsx";
+import {Todo} from "./model.ts";
+import TodoList from "./component/TodoList.tsx";
+
 
 
 function App() {
+    const [todo, setTodo] = useState<string>("");
+    const [todos, setTodos] = useState<Todo[]>([]);
+
+
+
+    const handleAddTodo = (event: React.FormEvent) => {
+        event.preventDefault();
+
+        const date = Date.now()
+        if(todo){
+            setTodos([...todos, {id: date.toString(), message:todo, isDone:false}]);
+            setTodo("");
+        }
+
+    }
+    console.log(todos);
 
 
   return (
-   <main className="flex flex-col items-center justify-center h-full">
-       <div className="flex flex-col items-center justify-center w-full h-full bg-[#6c5ce7] z-20">
-           <h1 className="m-5 font-medium text-3xl font-Neucha text-amber-50">Todo-List</h1>
-       </div>
-       <div className="flex flex-col items-center justify-center h-full">
-           jhjhjhj
-       </div>
-
-   </main>
+   <div className="flex flex-col items-center h-[100%] min-w-[100vw] font-Neucha bg-[#2f74c0]">
+        <span className="text-4xl text-white font-medium items-center m-10 z-10">Todo-List</span>
+        <InputField todo={todo} setTodo={setTodo} handleAddTodo={handleAddTodo} />
+        <TodoList todos={todos} setTodos={setTodos}/>
+   </div>
   )
+
 }
 
 export default App
