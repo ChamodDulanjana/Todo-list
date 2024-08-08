@@ -25,7 +25,7 @@ function App() {
 
 
   return (
-   <div className="flex flex-col items-center h-[100%] min-w-[100vw] font-Neucha bg-[#2f74c0]">
+   <div className="flex flex-col items-center h-[100vw] min-w-[100vw] font-Neucha bg-[#2f74c0]">
         <span className="text-4xl text-white font-medium items-center m-10 z-10">Todo-List</span>
         <InputField todo={todo} setTodo={setTodo} handleAddTodo={handleAddTodo} />
         <TodoList todos={todos} setTodos={setTodos}/>

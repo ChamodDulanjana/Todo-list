@@ -13,8 +13,8 @@ type singleTodoProps = {
 const SingleTodo = ({todo, todos, setTodos}: singleTodoProps) => {
 
     return (
-        <form className="flex w-[440px] h-[20px] rounded-xl p-20 mt-20 ml-10 bg-singleTodo " >
-            <span className="flex-1  p-5 border-none text-lg focus:outline-none relative bottom-10">
+        <form className="flex w-[440px] h-[10px] rounded-xl p-10 mt-20 ml-10 bg-singleTodo" >
+            <span className="flex-1  p-5 border-none text-lg focus:outline-none relative bottom-9">
                 {todo.message}
             </span>
             <div className="flex items-center justify-between">
