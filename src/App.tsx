@@ -20,8 +20,9 @@ function App() {
 
 
   return (
-   <div className="flex flex-col items-center h-[100vw] min-w-[100vw] font-Neucha bg-mainBg">
-           <span className="text-4xl text-white font-medium items-center mt-5 mb-10 z-10">Todo-List</span>
+   <div className="flex flex-col items-center h-[100vw] min-w-[100vw] font-KoHO bg-purple-50">
+       <span className="text-4xl text-black font-medium items-center mt-8 mb-2 z-10">Todo-List</span>
+       <p className="mb-10 font-medium text-md">Make your tasks unforgettable</p>
 
        <InputField todo={todo} setTodo={setTodo} handleAddTodo={handleAddTodo} />
        <TodoList todos={todos} setTodos={setTodos}/>

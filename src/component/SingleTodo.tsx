@@ -5,19 +5,20 @@ import {MdDelete} from "react-icons/md";
 import {IoIosCloudDone} from "react-icons/io";
 
 type singleTodoProps = {
-    todo: Todo;
-    todos: Todo[];
-    setTodos: React.Dispatch<React.SetStateAction<Array<Todo>>>;
+    todo: Todo,
+    todos: Todo[],
+    setTodos: React.Dispatch<React.SetStateAction<Array<Todo>>>,
+    key?: number
 }
 
-const SingleTodo = ({todo, todos, setTodos}: singleTodoProps) => {
+const SingleTodo = ({todo, todos, setTodos, key}: singleTodoProps) => {
     const [edit, setEdit] = useState<boolean>(false);
     const [editTodo, setEditTodo] = useState<string>(todo.message);
 
     const handleDone = (id: number) => {
         setTodos(
             todos.map((todo) =>
-                todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
+                todo.id === id ? {...todo, isDone: !todo.isDone} : todo
             )
         );
     };
@@ -28,11 +29,11 @@ const SingleTodo = ({todo, todos, setTodos}: singleTodoProps) => {
         );
     }
 
-    const handleEdit = (event:FormEvent<HTMLFormElement>, id: number) => {
+    const handleEdit = (event: FormEvent<HTMLFormElement>, id: number) => {
         event.preventDefault();
 
         setTodos(
-            todos.map((todo) => todo.id === id ? { ...todo,  message:editTodo} : todo)
+            todos.map((todo) => todo.id === id ? {...todo, message: editTodo} : todo)
         );
         setEdit(false);
     };
@@ -44,7 +45,7 @@ const SingleTodo = ({todo, todos, setTodos}: singleTodoProps) => {
     }, [edit]);
 
     return (
-        <form className="flex w-[440px] h-[10px] rounded-xl p-10 mt-10 ml-10 bg-singleTodo"
+        <form className="flex w-[440px] h-[10px] rounded-xl p-10 mt-10 ml-10 bg-purple-400"
               onSubmit={(event) => {
                   handleEdit(event, todo.id);
               }}>
@@ -57,13 +58,14 @@ const SingleTodo = ({todo, todos, setTodos}: singleTodoProps) => {
                     value={editTodo}
                     onChange={(e) => setEditTodo(e.target.value)}
                 />
-            ): (
+            ) : (
                 todo.isDone ? (
                     <s className="flex-1  p-5 border-none text-lg focus:outline-none relative bottom-9 max-w-52">
                         {todo.message}
                     </s>
                 ) : (
-                    <span className="flex-1  p-5 border-none text-lg focus:outline-none relative bottom-9 max-w-52 focus:animate-none">
+                    <span
+                        className="flex-1  p-5 border-none text-lg focus:outline-none relative bottom-9 max-w-52 focus:animate-none">
                 {todo.message}
                 </span>
                 )
@@ -77,17 +79,21 @@ const SingleTodo = ({todo, todos, setTodos}: singleTodoProps) => {
                         }
                     }}
                     className="ml-4 text-lg cursor-pointer">
-                    <GrEdit />
+                    <GrEdit/>
                 </span>
                 <span
-                    onClick={() => {handleDelete(todo.id)}}
+                    onClick={() => {
+                        handleDelete(todo.id)
+                    }}
                     className="ml-4 text-lg cursor-pointer">
-                    <MdDelete />
+                    <MdDelete/>
                 </span>
                 <span
-                    onClick={() => {handleDone(todo.id)}}
+                    onClick={() => {
+                        handleDone(todo.id)
+                    }}
                     className="ml-4 text-lg cursor-pointer">
-                    <IoIosCloudDone />
+                    <IoIosCloudDone/>
                 </span>
             </div>
         </form>

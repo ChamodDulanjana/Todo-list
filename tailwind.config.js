@@ -8,7 +8,8 @@ export default {
     extend: {
       fontFamily: {
         Mooli: ["Mooli", "sans-serif"],
-        Neucha:["Neucha", "cursive"]
+        Neucha:["Neucha", "cursive"],
+        KoHO: ["KoHo", "sans-serif"]
       },
       boxShadow: {
         'custom': '0 0 10px 1000px rgba(0, 0, 0, 0.5)',
